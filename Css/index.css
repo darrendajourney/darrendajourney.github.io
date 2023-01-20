@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+}
+
+h1 {
+    position: absolute;
+    top: 380px;
+    left: 550px;
+    font-family: "Monaco", monospace;
+    font-family: monospace;
+    font-size: 200px;
+    text-align: center;
+    color: #b98801;
+   }
+
+p {
+  position: absolute;
+  top: 900px;
+  left: 100px;
+  color: #f0c245;
+  font-size: 35px;
+  font-family: monospace;
+  text-align: justify;
+}
+
+a {
+  position: absolute;
+  top: 1500px;
+  left: 500px;
+  color: #e2a703;
+  text-decoration: none;
+  font-size: 60px;
+  font-family: monospace;
+  }
+
+img {
+    position: absolute;
+    left: 180px;
+    opacity: 0.85;
+}
+
+
