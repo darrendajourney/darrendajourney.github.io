@@ -156,13 +156,13 @@ const canvas = document.getElementById("renderCanvas");
                 }
 
         //creating a AR session
-            const xr = await scene.createDefaultXRExperienceAsync({
-                uiOptions: {
-                    sessionMode: 'immersive-ar',
-                    referenceSpaceType: "local-floor"   
-                },
-                optionalFeatures: true,
-            });
+            //const xr = await scene.createDefaultXRExperienceAsync({
+                //uiOptions: {
+                    //sessionMode: 'immersive-ar',
+                    ///referenceSpaceType: "local-floor"   
+                //},
+                //optionalFeatures: true,
+            //});
 
             //const fm = xr.baseExperience.featuresManager;
             //const anchorSystem = fm.enableFeature(BABYLON.WebXRAnchorSystem, "latest");

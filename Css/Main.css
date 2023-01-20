@@ -3,12 +3,28 @@ body {
 
 }
 
+html { 
+    font-size:100%;
+}
+
+
+@media (min-width: 640px) { body {font-size:1rem;} }
+@media (min-width:960px) { body {font-size:1.2rem;} }
+@media (min-width:1100px) { body {font-size:1.5rem;} }
+
+
 #renderCanvas {
     position: absolute;
-    left: 110px; 
+    left: 250px; 
+    top: 500px;
     border: none; 
 }
-dl {
+
+#menu {
+    display: flex;
+    flex-direction: row;
+}
+#menu h2{
     position: absolute;
     left: 20px;
     top: 350px;
@@ -18,7 +34,7 @@ dl {
     display: flex;
 }
 
-dd a {
+#menu a {
     color: #b98801;
     text-decoration: none;
 }
@@ -63,73 +79,38 @@ a:hover, a:active {
     font-family: monospace;
 }
 
-#audioList h2 {
+#audioList p {
     position: absolute;
-    left: 520px;
+    left: 750px;
     top: 1880px;
-    width: 700px;
-    height: 300px;
+    width: 150px;
     font-family: monospace;
-    font-size: 40px;
+    font-size: 15px;
     text-align: center;
     color: #b98801;
+   
+}
+
+#TrackList ul{
+    position: absolute;
+    left: 450px;
+    top: 1950px; 
+    width: 700px;
+    height: 200px;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: center;
+    color: #b98801;
+    list-style: none;
     border-radius: 82% 18% 55% 45% / 8% 46% 54% 92%;
     background-image: radial-gradient(closest-corner at 60% 55%,#857532, #5e5635, #0000); 
 }
 
-#audioList h3 {
-    position: absolute;
-    left: 750px;
-    top: 1860px;
-    font-family: monospace;
-    font-size: 20px;
-    text-align: center;
-    color: #b98801;
-}
-
-#Track01 a{
-    position: absolute;
-    left: 750px;
-    top: 1970px; 
-    font-family: monospace;
-    font-size: 25px;
-    text-align: center;
+#TrackList li a{
     color: #b98801;
     text-decoration: none;
 }
 
-#Track02 a{
-    position: absolute;
-    left: 750px;
-    top: 2010px; 
-    font-family: monospace;
-    font-size: 25px;
-    text-align: center;
-    color: #b98801;
-    text-decoration: none;
-}
-
-#Track03 a{
-    position: absolute;
-    left: 750px;
-    top: 2050px; 
-    font-family: monospace;
-    font-size: 25px;
-    text-align: center;
-    color: #b98801;
-    text-decoration: none;
-}
-
-#Track04 a{
-    position: absolute;
-    left: 750px;
-    top: 2090px; 
-    font-family: monospace;
-    font-size: 25px;
-    text-align: center;
-    color: #b98801;
-    text-decoration: none;
-}
 
 #image {
     position: absolute;
@@ -203,20 +184,15 @@ a:hover, a:active {
     top: 3520px;
     color: #b98801;
 }
-#contactme ul {
+#contactme h2 {
         position: absolute;
         left: 20px;
         top: 3550px;
         font-family: monospace;
         font-size: 20px;
         color: #b98801;
-        display: flex;
-        flex-direction: column;
+       
     } 
-
-#contactme  li {
-    list-style-type: none;
-}
     
 
 
