@@ -15,6 +15,7 @@ const canvas = document.getElementById("renderCanvas");
             const scene = new BABYLON.Scene(engine);
 
             const camera = new BABYLON.ArcRotateCamera("Camera", -1.5708, 1.309, 10, BABYLON.Vector3(0, 0, 0));
+            camera.setPosition(new BABYLON.Vector3(0, 0, -15));
             camera.lowerRadiusLimit = 5;
             camera.upperRadiusLimit = 20;
             camera.attachControl(canvas, true);
@@ -25,7 +26,7 @@ const canvas = document.getElementById("renderCanvas");
 
             BABYLON.SceneLoader.ImportMesh(["mesh01"], "mesh/", "Speaker.gltf", scene, function (mesh) {
                 camera.target = mesh[0];
-                mesh[0].scaling = new BABYLON.Vector3(0.5, 0.5, 0.5);
+                mesh[0].scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
                 mesh[0].position.z -= 0.8;
             })
 
@@ -154,13 +155,13 @@ const canvas = document.getElementById("renderCanvas");
             
 
         //creating a AR session
-            const xr = await scene.createDefaultXRExperienceAsync({
-                uiOptions: {
-                    sessionMode: 'immersive-ar',
-                    referenceSpaceType: "local-floor"   
-                },
-                optionalFeatures: true,
-            });
+        const xr = await scene.createDefaultXRExperienceAsync({
+            uiOptions: {
+                sessionMode: 'immersive-ar',
+                referenceSpaceType: "local-floor"   
+            },
+            optionalFeatures: true,
+        });
 
             //const fm = xr.baseExperience.featuresManager;
             //const anchorSystem = fm.enableFeature(BABYLON.WebXRAnchorSystem, "latest");
