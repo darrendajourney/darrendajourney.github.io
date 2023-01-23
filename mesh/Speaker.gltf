@@ -1,0 +1,147 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.4.49",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_materials_specular",
+        "KHR_materials_ior"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "mesh01",
+            "rotation" : [
+                -0.6123872399330139,
+                -0.35352784395217896,
+                0.3535279631614685,
+                0.6123871803283691
+            ],
+            "scale" : [
+                0.390857458114624,
+                0.390857458114624,
+                0.390857458114624
+            ],
+            "translation" : [
+                2.1979622840881348,
+                0.35733580589294434,
+                -1.515195608139038
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.4761387185835639,
+                        0.4761387185835639,
+                        0.4761387185835639
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "Material.001",
+            "pbrMetallicRoughness" : {
+                "metallicFactor" : 0.6062992215156555,
+                "roughnessFactor" : 0.10629920661449432
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Spiral.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "TEXCOORD_0" : 1,
+                        "NORMAL" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 5808,
+            "max" : [
+                9.281030654907227,
+                10.31057357788086,
+                18.021568298339844
+            ],
+            "min" : [
+                -9.24774169921875,
+                -10.268791198730469,
+                -3.511620044708252
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 5808,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 5808,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 33744,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 69696,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 46464,
+            "byteOffset" : 69696,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 69696,
+            "byteOffset" : 116160,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 67488,
+            "byteOffset" : 185856,
+            "target" : 34963
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 253344,
+            "uri" : "Speaker.bin"
+        }
+    ]
+}
