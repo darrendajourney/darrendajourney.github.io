@@ -15,7 +15,15 @@ const canvas = document.getElementById("renderCanvas");
             const scene = new BABYLON.Scene(engine);
 
             const camera = new BABYLON.ArcRotateCamera("Camera", -1.5708, 1.309, 10, BABYLON.Vector3(0, 0, 0));
+            const camera1 = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
             camera.setPosition(new BABYLON.Vector3(0, 0, -15));
+            // Targets the camera to a particular position
+            camera1.setTarget(new BABYLON.Vector3(0, 0, -25));
+
+            // Sets the sensitivity of the camera to movement and rotation
+            camera1.angularSensibility = 10;
+            camera1.moveSensibility = 10;
+            //sets the max and min zoom distance
             camera.lowerRadiusLimit = 5;
             camera.upperRadiusLimit = 20;
             camera.attachControl(canvas, true);
@@ -41,7 +49,7 @@ const canvas = document.getElementById("renderCanvas");
             const spheremat = new BABYLON.StandardMaterial("spheremat", scene);
             spheremat.alpha = 0.5;
             midSphere.material = spheremat;
-            midSphere.position.y = 0.5;
+            midSphere.position.y = -3;
 
             //creating a stop box button for the audio
             const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 1, height: 1, width: 1, depth: 0.5});
@@ -155,13 +163,13 @@ const canvas = document.getElementById("renderCanvas");
             
 
         //creating a AR session
-        const xr = await scene.createDefaultXRExperienceAsync({
-            uiOptions: {
-                sessionMode: 'immersive-ar',
-                referenceSpaceType: "local-floor"   
-            },
-            optionalFeatures: true,
-        });
+    const xr = await scene.createDefaultXRExperienceAsync({
+        uiOptions: {
+            sessionMode: 'immersive-ar',
+            referenceSpaceType: "local-floor"   
+        },
+        optionalFeatures: true,
+    });
 
             //const fm = xr.baseExperience.featuresManager;
             //const anchorSystem = fm.enableFeature(BABYLON.WebXRAnchorSystem, "latest");
