@@ -45,11 +45,11 @@ const canvas = document.getElementById("renderCanvas");
             light.intensity = 0.8;
 
             //creating a sphere for the sound and hidding it with opacity
-            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 5}, scene);
+            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 3}, scene);
             const spheremat = new BABYLON.StandardMaterial("spheremat", scene);
-            spheremat.alpha = 0.5;
+            spheremat.alpha = 1;
             midSphere.material = spheremat;
-            midSphere.position.y = -3;
+            midSphere.position.y = 3;
 
             //creating a stop box button for the audio
             const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 1, height: 1, width: 1, depth: 0.5});
@@ -79,11 +79,8 @@ const canvas = document.getElementById("renderCanvas");
             
             const SPS = new BABYLON.SolidParticleSystem("SPS", scene);
             const sphere = BABYLON.MeshBuilder.CreateSphere("s", {});
-            const poly = BABYLON.MeshBuilder.CreatePolyhedron("p", { type: 4 });
-            SPS.addShape(sphere, 20); // 20 spheres
-            SPS.addShape(poly, 50); // 120 polyhedrons
+            SPS.addShape(sphere, 50); // 20 spheres
             sphere.dispose(); //dispose of original model sphere
-            poly.dispose(); //dispose of original model poly
         
             const mesh = SPS.buildMesh(); // finally builds and displays the SPS mesh
             
@@ -95,15 +92,24 @@ const canvas = document.getElementById("renderCanvas");
                     particle.position.y = BABYLON.Scalar.RandomRange(-20, 20);
                     particle.position.z = BABYLON.Scalar.RandomRange(-20, 20);
                     particle.color = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
-                    particle.scaling.x = Math.random() * 1 + 0.05;
-                    particle.scaling.y = Math.random() * 1 + 0.05;
-                    particle.scaling.z = Math.random() * 1 + 0.05;
+                    particle.scaling.x = 0.5;
+                    particle.scaling.y = 0.5;
+                    particle.scaling.z = 0.5;
                 }
             };
         
             //Update SPS mesh
             SPS.initParticles();
             SPS.setParticles();
+
+            let axis = new BABYLON.Vector3(0, 1, 0);
+            let axisRev = new BABYLON.Vector3(0, -1, 0);
+            let angle = 0.01;
+            let angle1 = 0.001;
+            scene.registerBeforeRender(function() {
+                midSphere.rotate(axis, angle, BABYLON.Space.WORLD);
+                mesh.rotate(axisRev, angle1, BABYLON.Space.WORLD);
+            })
 
                 //creating a basic shader for the particles
                 let toruscolors = midSphere.getVerticesData(BABYLON.VertexBuffer.ColorKind);
@@ -163,13 +169,13 @@ const canvas = document.getElementById("renderCanvas");
             
 
         //creating a AR session
-    const xr = await scene.createDefaultXRExperienceAsync({
-        uiOptions: {
-            sessionMode: 'immersive-ar',
-            referenceSpaceType: "local-floor"   
-        },
-        optionalFeatures: true,
-    });
+        const xr = await scene.createDefaultXRExperienceAsync({
+            uiOptions: {
+                sessionMode: 'immersive-ar',
+                referenceSpaceType: "local-floor"
+            },
+            optionalFeatures: true,
+});
 
             //const fm = xr.baseExperience.featuresManager;
             //const anchorSystem = fm.enableFeature(BABYLON.WebXRAnchorSystem, "latest");
