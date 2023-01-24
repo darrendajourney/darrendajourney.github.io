@@ -20,10 +20,12 @@ html {
     border: none; 
 }
 
-#click h3 {
+#click p {
     position: absolute;
     top: 1250px;
     left: 525px;
+    width: 500px;
+    height: 250px;
     color: #d1ae11;
     font-size: 20px;
 }

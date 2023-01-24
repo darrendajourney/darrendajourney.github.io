@@ -14,12 +14,12 @@ const canvas = document.getElementById("renderCanvas");
         
             const scene = new BABYLON.Scene(engine);
 
-            const camera = new BABYLON.ArcRotateCamera("Camera", -1.5708, 1.5708, 15, new BABYLON.Vector3(0, 0, 0), scene);
+            const camera = new BABYLON.ArcRotateCamera("Camera", -1.5708, 1.5708, 3, new BABYLON.Vector3(0, 0, 0), scene);
            
         
             //sets the max and min zoom distance
-            camera.lowerRadiusLimit = 5;
-            camera.upperRadiusLimit = 30;
+            camera.lowerRadiusLimit = 3;
+            camera.upperRadiusLimit = 10;
             camera.attachControl(canvas, true);
 
             scene.clearColor = new BABYLON.Color3(0, 0, 0);
@@ -28,9 +28,9 @@ const canvas = document.getElementById("renderCanvas");
 
             BABYLON.SceneLoader.ImportMesh(["metalSpeaker"], "mesh/", "Speaker.gltf", scene, function (mesh) {
                 camera.target = mesh[0];
-                mesh[0].scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
-                mesh[0].position.z -= 1;
-                mesh[0].position.y += 1;
+                mesh[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+                //mesh[0].position.z += 0.3;
+                mesh[0].position.y -= 1;
             })
 
            
@@ -43,7 +43,7 @@ const canvas = document.getElementById("renderCanvas");
             gl.intensity = 0.4;
 
             //creating a sphere for the sound and hidding it with opacity
-            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 4}, scene);
+            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 0.9}, scene);
 
             setInterval(colourChange, 5000);
             function colourChange() {
@@ -56,16 +56,16 @@ const canvas = document.getElementById("renderCanvas");
             }
 
             //sphere position
-            midSphere.position.y += 4;
-            midSphere.position.z -= 1;
+            midSphere.position.y -= 0.2;
+           midSphere.position.z += 0.1;
 
             //creating a stop box button for the audio
-            const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 1, height: 1, width: 1, depth: 0.5});
+            const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 0.5, height: 0.5, width: 0.5, depth: 0.2});
             
             //material for the stopbox
             stopBox.position.x += 1;
             stopBox.position.y -= 1;
-            stopBox.position.z -= 3;
+            //stopBox.position.z -= 3;
 
             //creating material for stopbox
             const boxMaterial = new BABYLON.StandardMaterial("boxmat", scene);
@@ -73,10 +73,10 @@ const canvas = document.getElementById("renderCanvas");
             stopBox.material = boxMaterial;
 
             //creating a play polyhedron for the audio
-            const playPoly = BABYLON.MeshBuilder.CreatePolyhedron("playpolly", {type: 0, size: 0.1, sizeX: 0.5, sizeY: 0.5, sizeZ: 0.2});
+            const playPoly = BABYLON.MeshBuilder.CreatePolyhedron("playpolly", {type: 0, size: 0.1, sizeX: 0.3, sizeY: 0.3, sizeZ: 0.1});
             playPoly.position.x -= 1;
             playPoly.position.y -= 1;
-            playPoly.position.z -= 3;
+            //playPoly.position.z -= 3;
 
             //creating material for polly
             //const pollyMaterial = new BABYLON.StandardMaterial("pollymat", scene);
@@ -99,9 +99,9 @@ const canvas = document.getElementById("renderCanvas");
             SPS.initParticles = () => {
                 for (let p = 0; p < SPS.nbParticles; p++) {
                     const particle = SPS.particles[p];
-                    particle.position.x = BABYLON.Scalar.RandomRange(-20, 20);
-                    particle.position.y = BABYLON.Scalar.RandomRange(-20, 20);
-                    particle.position.z = BABYLON.Scalar.RandomRange(-20, 20);
+                    particle.position.x = BABYLON.Scalar.RandomRange(-10, 10);
+                    particle.position.y = BABYLON.Scalar.RandomRange(-10, 10);
+                    particle.position.z = BABYLON.Scalar.RandomRange(-10, 10);
                     particle.color = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
                     particle.scaling.x = 0.5;
                     particle.scaling.y = 0.5;
@@ -142,7 +142,7 @@ const canvas = document.getElementById("renderCanvas");
             sounds = new BABYLON.Sound("mainmenu", "./Sounds/MainMenu.wav", scene, null, {
                 spatialSound: true,
                 distanceModel: "linear",
-                maxDistance: 20,
+                maxDistance: 10,
             });
             sounds.attachToMesh(midSphere);
 
@@ -185,8 +185,8 @@ const canvas = document.getElementById("renderCanvas");
         uiOptions: {
             sessionMode: 'immersive-ar',
             referenceSpaceType: "local-floor"
-        },
-        optionalFeatures: true,});
+    },
+    optionalFeatures: true,});
 
             return scene;
         };
