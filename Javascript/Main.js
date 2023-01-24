@@ -28,8 +28,9 @@ const canvas = document.getElementById("renderCanvas");
 
             BABYLON.SceneLoader.ImportMesh(["metalSpeaker"], "mesh/", "Speaker.gltf", scene, function (mesh) {
                 camera.target = mesh[0];
-                mesh[0].scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
-                mesh[0].position.z -= 0.8;
+                mesh[0].scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
+                mesh[0].position.z -= 1;
+                mesh[0].position.y += 1;
             })
 
            
@@ -180,13 +181,12 @@ const canvas = document.getElementById("renderCanvas");
             
 
         //creating a AR session
-        const xr = await scene.createDefaultXRExperienceAsync({
-            uiOptions: {
-                sessionMode: 'immersive-ar',
-                referenceSpaceType: "local-floor"
-            },
-            optionalFeatures: true,
-});
+    const xr = await scene.createDefaultXRExperienceAsync({
+        uiOptions: {
+            sessionMode: 'immersive-ar',
+            referenceSpaceType: "local-floor"
+        },
+        optionalFeatures: true,});
 
             return scene;
         };
