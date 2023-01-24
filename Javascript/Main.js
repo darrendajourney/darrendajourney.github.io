@@ -14,15 +14,10 @@ const canvas = document.getElementById("renderCanvas");
         
             const scene = new BABYLON.Scene(engine);
 
-            const camera = new BABYLON.ArcRotateCamera("Camera", -1.5708, 1.309, 10, BABYLON.Vector3(0, 0, 0));
-            const camera1 = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
-            camera.setPosition(new BABYLON.Vector3(0, 0, -15));
-            // Targets the camera to a particular position
-            camera1.setTarget(new BABYLON.Vector3(0, 0, -25));
-
-            // Sets the sensitivity of the camera to movement and rotation
-            camera1.angularSensibility = 10;
-            camera1.moveSensibility = 10;
+            const camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 5, -15), scene);
+            // Targets the camera to a particular position. In this case the scene origin
+            camera.setTarget(BABYLON.Vector3.Zero());
+        
             //sets the max and min zoom distance
             camera.lowerRadiusLimit = 5;
             camera.upperRadiusLimit = 20;
@@ -32,7 +27,7 @@ const canvas = document.getElementById("renderCanvas");
 
             BABYLON.Engine.audioEngine.setGlobalVolume(1);
 
-            BABYLON.SceneLoader.ImportMesh(["mesh01"], "mesh/", "Speaker.gltf", scene, function (mesh) {
+            BABYLON.SceneLoader.ImportMesh(["metalSpeaker"], "mesh/", "Speaker.gltf", scene, function (mesh) {
                 camera.target = mesh[0];
                 mesh[0].scaling = new BABYLON.Vector3(0.4, 0.4, 0.4);
                 mesh[0].position.z -= 0.8;
@@ -44,12 +39,20 @@ const canvas = document.getElementById("renderCanvas");
             light.diffuse = new BABYLON.Color3(0.6, 0.6, 0.6);
             light.intensity = 0.8;
 
+            let gl = new BABYLON.GlowLayer("glow", scene);
+            gl.intensity = 0.4;
+
             //creating a sphere for the sound and hidding it with opacity
-            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 3}, scene);
+            const midSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {segments: 10, diameter: 6}, scene);
+            //creating a material for the sphere
             const spheremat = new BABYLON.StandardMaterial("spheremat", scene);
-            spheremat.alpha = 1;
+            spheremat.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+            spheremat.emissiveColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
             midSphere.material = spheremat;
-            midSphere.position.y = 3;
+
+            //sphere position
+            midSphere.position.y += 6;
+            midSphere.position.z -= 1;
 
             //creating a stop box button for the audio
             const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 1, height: 1, width: 1, depth: 0.5});
@@ -79,7 +82,7 @@ const canvas = document.getElementById("renderCanvas");
             
             const SPS = new BABYLON.SolidParticleSystem("SPS", scene);
             const sphere = BABYLON.MeshBuilder.CreateSphere("s", {});
-            SPS.addShape(sphere, 50); // 20 spheres
+            SPS.addShape(sphere, 60); // 20 spheres
             sphere.dispose(); //dispose of original model sphere
         
             const mesh = SPS.buildMesh(); // finally builds and displays the SPS mesh
@@ -121,10 +124,11 @@ const canvas = document.getElementById("renderCanvas");
                 for(let p = 0; p < positions.length / 2; p++) {
                     toruscolors.push(Math.random(), Math.random(), Math.random());
                 }
-            }
+            
                 
                 midSphere.setVerticesData(BABYLON.VertexBuffer.ColorKind, toruscolors);
-            
+        }
+        
 
             //loading the sound track
             sounds = new BABYLON.Sound("mainmenu", "./Sounds/MainMenu.wav", scene, null, {
@@ -163,19 +167,19 @@ const canvas = document.getElementById("renderCanvas");
 
             //for (let i = 0; i < musicFrequency.length; i++){
                 //let v = binCount[i] /= Math.pow(10, 4);
-                    //v = toruscolors;
+                    //v = spheremat.emissiveColor;
                     //console.log(toruscolors);
                 //}
             
 
         //creating a AR session
-        const xr = await scene.createDefaultXRExperienceAsync({
-            uiOptions: {
-                sessionMode: 'immersive-ar',
-                referenceSpaceType: "local-floor"
-            },
-            optionalFeatures: true,
-});
+        //const xr = await scene.createDefaultXRExperienceAsync({
+            //uiOptions: {
+                //sessionMode: 'immersive-ar',
+                //referenceSpaceType: "local-floor"
+            ///},
+            //optionalFeatures: true,
+//});
 
             //const fm = xr.baseExperience.featuresManager;
             //const anchorSystem = fm.enableFeature(BABYLON.WebXRAnchorSystem, "latest");

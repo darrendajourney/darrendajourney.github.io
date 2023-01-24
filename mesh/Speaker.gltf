@@ -19,7 +19,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "mesh01",
+            "name" : "metalSpeaker",
             "rotation" : [
                 -0.6123872399330139,
                 -0.35352784395217896,
@@ -44,9 +44,9 @@
             "extensions" : {
                 "KHR_materials_specular" : {
                     "specularColorFactor" : [
-                        0.4761387185835639,
-                        0.4761387185835639,
-                        0.4761387185835639
+                        0.028008147445157148,
+                        0.028008147445157148,
+                        0.028008147445157148
                     ]
                 },
                 "KHR_materials_ior" : {
@@ -55,8 +55,8 @@
             },
             "name" : "Material.001",
             "pbrMetallicRoughness" : {
-                "metallicFactor" : 0.6062992215156555,
-                "roughnessFactor" : 0.10629920661449432
+                "metallicFactor" : 0.9448819160461426,
+                "roughnessFactor" : 0.16929133236408234
             }
         }
     ],
