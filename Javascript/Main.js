@@ -29,8 +29,8 @@ const canvas = document.getElementById("renderCanvas");
             BABYLON.SceneLoader.ImportMesh(["metalSpeaker"], "mesh/", "Speaker.gltf", scene, function (mesh) {
                 camera.target = mesh[0];
                 mesh[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-                //mesh[0].position.z += 0.3;
-                mesh[0].position.y -= 1;
+                mesh[0].position.z += 1.9;
+                //mesh[0].position.y -= 1;
             })
 
            
@@ -56,16 +56,16 @@ const canvas = document.getElementById("renderCanvas");
             }
 
             //sphere position
-            midSphere.position.y -= 0.2;
-           midSphere.position.z += 0.1;
+            midSphere.position.y += 0.8;
+           midSphere.position.z += 2;
 
             //creating a stop box button for the audio
             const stopBox = BABYLON.MeshBuilder.CreateBox("stopbox", {size: 0.5, height: 0.5, width: 0.5, depth: 0.2});
             
             //material for the stopbox
             stopBox.position.x += 1;
-            stopBox.position.y -= 1;
-            //stopBox.position.z -= 3;
+            stopBox.position.y -= 0;
+            stopBox.position.z += 1.5;
 
             //creating material for stopbox
             const boxMaterial = new BABYLON.StandardMaterial("boxmat", scene);
@@ -75,8 +75,8 @@ const canvas = document.getElementById("renderCanvas");
             //creating a play polyhedron for the audio
             const playPoly = BABYLON.MeshBuilder.CreatePolyhedron("playpolly", {type: 0, size: 0.1, sizeX: 0.3, sizeY: 0.3, sizeZ: 0.1});
             playPoly.position.x -= 1;
-            playPoly.position.y -= 1;
-            //playPoly.position.z -= 3;
+            playPoly.position.y -= 0;
+            playPoly.position.z += 1.5;
 
             //creating material for polly
             //const pollyMaterial = new BABYLON.StandardMaterial("pollymat", scene);
@@ -181,12 +181,12 @@ const canvas = document.getElementById("renderCanvas");
             
 
         //creating a AR session
-    const xr = await scene.createDefaultXRExperienceAsync({
-        uiOptions: {
-            sessionMode: 'immersive-ar',
-            referenceSpaceType: "local-floor"
-    },
-    optionalFeatures: true,});
+        const xr = await scene.createDefaultXRExperienceAsync({
+            uiOptions: {
+                sessionMode: 'immersive-ar',
+                referenceSpaceType: "local-floor"
+        },
+        optionalFeatures: true,});
 
             return scene;
         };
