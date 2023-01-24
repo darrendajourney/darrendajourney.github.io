@@ -18,7 +18,7 @@ const canvas = document.getElementById("renderCanvas");
            
         
             //sets the max and min zoom distance
-            camera.lowerRadiusLimit = 3;
+            camera.lowerRadiusLimit = 2;
             camera.upperRadiusLimit = 10;
             camera.attachControl(canvas, true);
 
@@ -35,9 +35,13 @@ const canvas = document.getElementById("renderCanvas");
 
            
 
-            const light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-10, 30, 0), scene);
-            light.diffuse = new BABYLON.Color3(0.6, 0.6, 0.6);
+            const light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(10, 30, -40), scene);
+            light.diffuse = new BABYLON.Color3(0.8, 0.8, 0.8);
             light.intensity = 0.8;
+
+            const light1 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(-10, -20, 40), scene);
+            light1.diffuse = new BABYLON.Color3(0.8, 0.8, 0.8);
+            light1.intensity = 0.4;
 
             let gl = new BABYLON.GlowLayer("glow", scene);
             gl.intensity = 0.4;
