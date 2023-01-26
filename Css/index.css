@@ -13,11 +13,13 @@ h1 {
     color: #b98801;
    }
 
-p {
+#image p {
   position: absolute;
   top: 900px;
   left: 100px;
   color: #f0c245;
+  height: 500px;
+  width: 1550px;
   font-size: 35px;
   font-family: monospace;
   text-align: justify;
