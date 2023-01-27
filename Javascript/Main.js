@@ -166,19 +166,6 @@ const canvas = document.getElementById("renderCanvas");
           
                     sounds
                       ));  
-
-            //creating a 360 photo dome
-            let dome = new BABYLON.PhotoDome(
-                "testdome",
-                "./Textures/nebula1.png",
-                {
-                    resolution: 32,
-                    size: 1000
-                },
-                scene
-            );
-        
-            //dome.imageMode = BABYLON.PhotoDome.MODE_MONOSCOPIC;
             
             //creating an audio analyser
         //const musicAnalyser = new BABYLON.Analyser(scene);
@@ -192,18 +179,28 @@ const canvas = document.getElementById("renderCanvas");
 
         //for (let i = 0; i < musicFrequency.length; i++){
             //let v = binCount[i] /= Math.pow(10, 4) ;
-            //
+            //spheremat.diffuseColor  = v;
             //console.log(v);
             //}
-            
+
+            //creating a 360 photo dome
+        const dome = new BABYLON.PhotoDome(
+            "testdome",
+            "./Textures/nebula1.png",
+            {
+                resolution: 32,
+                size: 1000
+            },
+            scene
+        );
 
         //creating a AR session
-    const xr = await scene.createDefaultXRExperienceAsync({
-        uiOptions: {
-            sessionMode: 'immersive-ar',
-            referenceSpaceType: "local-floor"
-    },
-    optionalFeatures: true,});
+            const xr = await scene.createDefaultXRExperienceAsync({
+            uiOptions: {
+                sessionMode: 'immersive-ar',
+                referenceSpaceType: "local-floor"
+        },
+        optionalFeatures: true,});
 
             return scene;
         };
@@ -228,7 +225,7 @@ const canvas = document.getElementById("renderCanvas");
                             
         });
 
-         //Resize
+        //Resize
         window.addEventListener("resize", function () {
             engine.resize();
             

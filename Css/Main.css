@@ -36,7 +36,7 @@ html {
     width: 200px;
     height: 100px;
     color: black;
-    font-size: 140px;
+    font-size: 80px;
     font-family: monospace;
     text-shadow: 0 0 10px #d1ae11, 15px 0 15px #5a5022;
 }
@@ -141,7 +141,7 @@ html {
 
 #flood p {
     position: absolute;
-    left: 550px;
+    left: 250px;
     top: 3300px; 
     width: 1300px;
     height: 100px;
@@ -177,8 +177,12 @@ html {
         font-family: monospace;
         font-size: 20px;
         color: #d1ae11;
-       
     } 
+
+#contactme h2 a {
+    color: #d1ae11;
+    text-decoration: none;
+}
     
 
 
