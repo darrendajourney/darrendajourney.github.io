@@ -20,15 +20,7 @@ html {
     border: none; 
 }
 
-#click p {
-    position: absolute;
-    top: 1250px;
-    left: 525px;
-    width: 500px;
-    height: 250px;
-    color: #d1ae11;
-    font-size: 20px;
-}
+
 .one h1 {
     position: absolute;
     top: 80px;
@@ -43,7 +35,7 @@ html {
 
 .two h1 {
     position: absolute;
-    top: 1440px;
+    top: 300px;
     left: 575px;
     width: 800px;
     height: 540px;
@@ -55,7 +47,7 @@ html {
 
 .three p {
     position: absolute;
-    top: 1600px;
+    top: 500px;
     left: 60px;
     color: #d1ae11;
     width: 1300px;
@@ -68,7 +60,7 @@ html {
 #audioList p {
     position: absolute;
     left: 750px;
-    top: 1880px;
+    top: 750px;
     width: 150px;
     font-family: monospace;
     font-size: 15px;
@@ -80,7 +72,7 @@ html {
 #TrackList ul{
     position: absolute;
     left: 450px;
-    top: 1950px; 
+    top: 850px; 
     width: 700px;
     height: 200px;
     font-family: monospace;
@@ -100,15 +92,15 @@ html {
 
 #image {
     position: absolute;
-    left: 950px;
-    top: 2270px; 
+    left: 750px;
+    top: 1200px; 
     opacity: 0.6;
 }
 
 #Bio  h2{
     position: absolute;
     left: 750px;
-    top: 2200px; 
+    top: 1100px; 
     font-family: monospace;
     font-size: 50px;
     text-align: center;
@@ -118,7 +110,7 @@ html {
 .part1 p{
     position: absolute;
     left: 50px;
-    top: 2300px; 
+    top: 1250px; 
     width: 1300px;
     height: 1000px;
     font-family: monospace;
@@ -130,7 +122,7 @@ html {
 .part2 p{
     position: absolute;
     left: 50px;
-    top: 2650px; 
+    top: 1550px; 
     width: 1300px;
     height: 100px;
     font-family: monospace;
@@ -142,7 +134,7 @@ html {
 #flood p {
     position: absolute;
     left: 250px;
-    top: 3300px; 
+    top: 2350px; 
     width: 1300px;
     height: 100px;
     font-family: monospace;
@@ -161,19 +153,19 @@ html {
 #floodImage {
     position: absolute;
     left: 550px;
-    top: 2800px; 
+    top: 1800px; 
 }
 
 #contactme h2 {
     position: absolute;
     left: 320px;
-    top: 3520px;
+    top: 1810px;
     color: #d1ae11;
 }
 #contactme h2 {
         position: absolute;
         left: 320px;
-        top: 3550px;
+        top: 2500px;
         font-family: monospace;
         font-size: 20px;
         color: #d1ae11;
