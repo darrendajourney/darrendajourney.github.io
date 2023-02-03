@@ -12,6 +12,7 @@ const music1 = new Audio("./websounds/BackAtmos1.wav");
 
 //setting up the audio player 
 const source1 = audiocontext.createMediaElementSource(static);
+const source = audiocontext.createMediaElementSource(music);
  //setting up global volume
  const volume = audiocontext.createGain();
  volume.gain.value = 0.6;
@@ -49,10 +50,22 @@ function staticDelay() {
 filter.frequency.setValueAtTime (Math.random() * 500 + 200, audiocontext.currentTime)
 };
 
+//creating an audio analyser 
+const analyser = audiocontext.createAnalyser();
+analyser.fftSize = 64;
+
+const binCount = new Uint8Array(analyser.frequencyBinCount);
+console.log(binCount);
+
+analyser.getByteFrequencyData(binCount);
+    
 //connecting the source and volume to the destination
+source.connect(analyser);
+analyser.connect(volume);
 source1.connect(filter);
 filter.connect(volume);
 volume.connect(audiocontext.destination);
+
 
 
 

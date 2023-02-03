@@ -7,9 +7,10 @@
     <!--<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./BGmusic.js"></script>
+    <script src="./Javascript/BallsRandom.js"></script>
 </head>
 <body>
-    <canvas id="renderCanvas" width="850" height="750" ></canvas>
+    <canvas id="Canvas" width="50" height="50" ></canvas>
     <div class="one">
         <h1>dajourney</h1>
     <div>
@@ -18,6 +19,7 @@
         <button id="play" onclick="play()">Click to play sounds</button>
         <button id="stop" onclick="stop()">Click to stop sounds</button>
     </div>
+
 
     <div class="two">
         <h1>Sound design and Implementation</h1>
@@ -38,16 +40,34 @@
     </div>
 
     <div id="audioList">
-            <p>Please click on a track</p>
+            <p>Please click on a track <br> 
+                or go to soundcloud to hear more music<br>
+                the link is at the bottom of the page</p>
     </div>
 
     <div id="TrackList">
-    <ul>
-        <li><a href="https://soundcloud.com/dajourney/dystopianfuture">Dystopian Future</a></li>
-        <li><a href="https://soundcloud.com/dajourney/dream">dream</a></li>
-        <li><a href="https://soundcloud.com/dajourney/morose-1">morose</a></li>
-        <li><a href="https://soundcloud.com/dajourney/undertheground">under The ground</a></li>
-    </ul>
+        <embed src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1428525601&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+           <a href="https://soundcloud.com/dajourney"></a>  
+           <a href="https://soundcloud.com/dajourney/dystopianfuture"></a>
+    
+           <embed src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1428525124&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+            <a href="https://soundcloud.com/dajourney"></a>
+            <a href="https://soundcloud.com/dajourney/dream"></a>
+    
+            <embed src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1428106339&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                <a href="https://soundcloud.com/dajourney"></a>
+                <a href="https://soundcloud.com/dajourney/morose-1"></a>
+    
+            <embed src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1284393223&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                <a href="https://soundcloud.com/dajourney"  ></a>
+                <a href="https://soundcloud.com/dajourney/undertheground"></a>
+    
+            <embed src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1267473982&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                <a href="https://soundcloud.com/dajourney"  ></a>
+                <a href="https://soundcloud.com/dajourney/alienspacewalk"></a>
+        </div>
+
+
 
     <div id="image">
         <img src="./Textures/BioImg.JPG" alt="potrait" width="800" height="500">

@@ -13,10 +13,10 @@ html {
 @media (min-width:1100px) { body {font-size:1.5rem;} }
 
 
-#renderCanvas {
+#Canvas {
     position: absolute;
-    left: 250px; 
-    top: 500px;
+    left: 150px; 
+    top: 0px;
     border: none; 
 }
 
@@ -84,7 +84,7 @@ html {
     position: absolute;
     left: 750px;
     top: 750px;
-    width: 150px;
+    width: 550px;
     font-family: monospace;
     font-size: 15px;
     text-align: center;
@@ -92,26 +92,19 @@ html {
    
 }
 
-#TrackList ul{
+#TrackList {
     position: absolute;
-    left: 450px;
-    top: 850px; 
-    width: 700px;
-    height: 200px;
-    font-family: monospace;
-    font-size: 25px;
-    text-align: center;
-    color: #d1ae11;
-    list-style: none;
-    border-radius: 82% 18% 55% 45% / 8% 46% 54% 92%;
-    background-image: radial-gradient(closest-corner at 60% 55%,#857532, #5e5635, #0000); 
+    left: 20px;
+    top: 850px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 4;
+    align-items: stretch;
 }
 
-#TrackList li a{
-    color: #d1ae11;
-    text-decoration: none;
+#TrackList embed { 
+    padding: 5px;
 }
-
 
 #image {
     position: absolute;
