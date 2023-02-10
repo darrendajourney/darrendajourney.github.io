@@ -60,6 +60,7 @@ window.onload = function() {
             this.draw();
         }
     }
+    
     function init(){
         for (let i = 0; i < 150; i++){
             balls.push(new Particles());
@@ -70,19 +71,14 @@ window.onload = function() {
         for (let i = 0; i < balls.length; i++){
             balls[i].update();
         }
-        analyser.getByteFrequencyData(binCount);
-        for (let i = 0; i < binCount; i++) {
-            let v = binCount[i] /= Math.pow(10, 4);
-            this.opacity = v;
-            //console.log(v);
-            console.log([i]);
-}
+    //analyser.getByteFrequencyData(binCount);
+    //for (let i = 0; i < binCount; i++) {
+        //let v = binCount[i] /= Math.pow(10, 4);
+        //this.opacity = v;
+    //}
         requestAnimationFrame(animate);
         }
        
         init();
         animate();
     }
-    
-  
-    
